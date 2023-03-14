@@ -43,7 +43,7 @@ if st.button("Train a Model"):
     history_cp=tf.keras.callbacks.CSVLogger('history.csv', separator=",", append=False)
     model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=num_epochs, callbacks=[cp, history_cp])
 
-if st.button("Plot the the Loss Curve"):
+if st.button("Validate Model"):
     import pandas as pd
     import matplotlib.pyplot as plt
     history = pd.read_csv('history.csv')
@@ -55,3 +55,7 @@ if st.button("Plot the the Loss Curve"):
     plt.xlabel('epoch')
     plt.legend(['Train', 'Val'], loc='lower right')
     fig
+
+references = ["https://medium.com/omdena/streamlit101-deploying-an-automl-model-using-streamlit-e86c6508b5c2", "https://github.com/gahogg/streamlit-app"]
+for i,ref in enumerate(references):
+    st.write(f"Reference: {i+1}", ref)
