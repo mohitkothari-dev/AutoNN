@@ -24,7 +24,7 @@ if st.button("Train a Model"):
     model = Sequential()
     model.add(InputLayer((28, 28)))
     model.add(Flatten())
-    model.add(Dense(num_neurons, 'relu'))
+    model.add(Dense(num_neurons, activation))
     model.add(Dense(10))
     model.add(Softmax())
     model.compile(loss='sparse_categorical_crossentropy', metrics=['accuracy'])
