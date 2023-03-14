@@ -7,6 +7,8 @@ num_neurons = st.sidebar.slider("Numbre of Neurons in the Hidden Layer:", 2, 64)
 num_epochs = st.sidebar.slider("Number of epochs:",2,16)
 activation = st.sidebar.text_input("Enter Activation Function:")
 
+"The activation function is: " + activation
+
 if st.button("Train a Model"):
     import tensorflow as tf
     from tensorflow.keras.datasets import mnist
