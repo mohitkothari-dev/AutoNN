@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("AutoNN - Neural Network Automation Platform")
-st.write("Train your NN here...")
+st.write("Training and Hyperparameter on Mnist dataset")
 
 num_neurons = st.sidebar.slider("Numbre of Neurons in the Hidden Layer:", 2, 64)
 num_epochs = st.sidebar.slider("Number of epochs:",2,16)
@@ -55,6 +55,11 @@ if st.button("Validate Model"):
     plt.xlabel('epoch')
     plt.legend(['Train', 'Val'], loc='lower right')
     fig
+
+st.header("Comparison")
+import pandas as pd
+df = pd.read_csv('history.csv')
+st.write(df)
 
 references = ["https://medium.com/omdena/streamlit101-deploying-an-automl-model-using-streamlit-e86c6508b5c2", "https://github.com/gahogg/streamlit-app"]
 for i,ref in enumerate(references):
