@@ -6,6 +6,13 @@ st.write("Train your NN here...")
 num_neurons = st.sidebar.slider("Numbre of Neurons in the Hidden Layer:", 2, 64)
 num_epochs = st.sidebar.slider("Number of epochs:",2,16)
 activation = st.sidebar.text_input("Enter Activation Function:")
+num_hidden_layers = st.sidebar.text_input("Enter number of hidden layers: ")
+if num_hidden_layers:
+    try:
+        num_hidden_layers = int(num_hidden_layers)
+        st.write(f"Number of hidden layers are {num_hidden_layers}")
+    except ValueError:
+        st.write(f"Error: {num_hidden_layers} is not a valid integer")
 
 "The activation function is: " + activation
 
@@ -27,7 +34,8 @@ if st.button("Train a Model"):
     model.add(InputLayer((28, 28)))
     model.add(Flatten())
     model.add(Dense(num_neurons, activation))
-    model.add(Dense(10))
+    for n in range(num_hidden_layers-1):    
+        model.add(Dense(10))
     model.add(Softmax())
     model.compile(loss='sparse_categorical_crossentropy', metrics=['accuracy'])
     model.summary()
@@ -42,7 +50,7 @@ if st.button("Plot the the Loss Curve"):
     fig = plt.figure()
     plt.plot(history['epoch'], history['accuracy'], )
     plt.plot(history['epoch'], history['val_accuracy'])
-    plt.title('Model Accuracy')
+    plt.title('Model Accuracy bs epochs')
     plt.ylabel('accuracy')
     plt.xlabel('epoch')
     plt.legend(['Train', 'Val'], loc='lower right')
