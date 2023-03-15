@@ -56,10 +56,10 @@ if st.button("Validate Model"):
     plt.legend(['Train', 'Val'], loc='lower right')
     fig
 
-st.header("Comparison")
-import pandas as pd
-df = pd.read_csv('history.csv')
-st.write(df)
+if st.button("Get latest comparison"):
+    import pandas as pd
+    df = pd.read_csv('history.csv')
+    st.write(df)
 
 references = ["https://medium.com/omdena/streamlit101-deploying-an-automl-model-using-streamlit-e86c6508b5c2", "https://github.com/gahogg/streamlit-app"]
 for i,ref in enumerate(references):
