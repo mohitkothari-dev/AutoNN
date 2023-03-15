@@ -1,7 +1,10 @@
 import streamlit as st
 
 st.title("AutoNN - Neural Network Automation Platform")
-st.write("Training and Hyperparameter on Mnist dataset")
+st.write("Training and Hyperparameter tuning on Mnist dataset")
+
+explanation = '<p style="color:#ff4b4b; font-size: 18px;">As name suggests, this is an automated neural network training platform for mnist dataset. Here, user can create Neural Netowrk, fine tune hyperparameters, and compare the result of each epocs with validation and training accuracy.</p>'
+st.markdown(explanation,unsafe_allow_html=True)
 
 num_neurons = st.sidebar.slider("Numbre of Neurons in the Hidden Layer:", 2, 64)
 num_epochs = st.sidebar.slider("Number of epochs:",2,16)
