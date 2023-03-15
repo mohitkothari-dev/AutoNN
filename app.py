@@ -61,6 +61,6 @@ if st.button("Get latest comparison"):
     df = pd.read_csv('history.csv')
     st.write(df)
 
-references = ["https://medium.com/omdena/streamlit101-deploying-an-automl-model-using-streamlit-e86c6508b5c2", "https://github.com/gahogg/streamlit-app"]
+references = ["https://medium.com/omdena/streamlit101-deploying-an-automl-model-using-streamlit-e86c6508b5c2"]
 for i,ref in enumerate(references):
     st.write(f"Reference: {i+1}", ref)
